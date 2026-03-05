@@ -1,6 +1,6 @@
 export type Timeframes = "daily" | "weekly" | "monthly";
 
-export type CurrPrevTF = {
+export type CurrPrevTimeframe = {
   current: number;
   previous: number;
 };
@@ -8,8 +8,8 @@ export type CurrPrevTF = {
 export type Category = {
   title: string;
   timeframes: {
-    daily: CurrPrevTF;
-    weekly: CurrPrevTF;
-    monthly: CurrPrevTF;
+    daily: CurrPrevTimeframe;
+    weekly: CurrPrevTimeframe;
+    monthly: CurrPrevTimeframe;
   };
 };

@@ -7,11 +7,11 @@ import IconStudy from "./icons/IconStudy.vue";
 import IconWork from "./icons/IconWork.vue";
 import IconSelfCare from "./icons/IconSelfCare.vue";
 import { computed } from "vue";
-import type { CurrPrevTF } from "@/types";
+import type { CurrPrevTimeframe } from "@/types";
 
 const props = defineProps<{
   title: string;
-  timeframe: CurrPrevTF;
+  timeframe: CurrPrevTimeframe;
   lastMessage: string;
 }>();
 
