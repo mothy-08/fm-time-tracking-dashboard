@@ -1,11 +1,25 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
-import CardCategory from "./components/CardCategory.vue";
-import { useData } from "./composable/useData";
+import type { Category, Timeframes } from "./types";
 import CardProfile from "./components/CardProfile.vue";
-import type { Timeframes } from "./types";
+import CardCategory from "./components/CardCategory.vue";
 
-const { data, loadData } = useData();
+const data = ref<Category[] | null>(null);
+
+async function loadData() {
+  try {
+    const response = await fetch("/data.json");
+
+    if (!response.ok) {
+      throw new Error(`HTTP Error: ${response.status}`);
+    }
+
+    data.value = await response.json();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 onMounted(loadData);
 
 const currentTimeframe = ref<Timeframes>("weekly");
@@ -22,11 +36,13 @@ const lastMessage = computed(
 </script>
 
 <template>
-  <main class="min-h-svh flex items-center justify-center">
-    <section class="max-w-6xl flex flex-col gap-6 md:flex-row justify-center">
+  <main class="flex min-h-svh items-center justify-center">
+    <section
+      class="flex flex-col justify-center gap-6 px-4 py-20 lg:flex-row lg:px-20 lg:py-0"
+    >
       <CardProfile :currentTimeframe @update="currentTimeframe = $event" />
       <ul
-        class="flex flex-col md:grid md:grid-cols-3 md:place-content-center gap-6 items-center justify-center"
+        class="flex flex-1 flex-col justify-center gap-6 lg:grid lg:grid-cols-[repeat(3,minmax(0,256px))] lg:place-content-center"
       >
         <CardCategory
           v-for="datum in data"

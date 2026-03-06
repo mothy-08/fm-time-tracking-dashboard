@@ -2,32 +2,17 @@
 
 @theme {
   --color-purple-600: hsl(246, 80%, 60%);
-
   --color-navy-950: hsl(226, 43%, 10%);
   --color-navy-900: hsl(235, 46%, 20%);
   --color-purple-500: hsl(235, 45%, 61%);
   --color-navy-200: hsl(236, 100%, 87%);
-
-  /* (work) */
   --color-orange-300: hsl(15, 100%, 70%);
-
-  /* (play) */
   --color-blue-300: hsl(195, 74%, 62%);
-
-  /* (study) */
   --color-pink-400: hsl(348, 100%, 68%);
-
-  /* (exercise) */
   --color-green-400: hsl(145, 58%, 55%);
-
-  /* (social) */
   --color-purple-700: hsl(264, 64%, 52%);
-
-  /* (self care) */
   --color-yellow-300: hsl(43, 84%, 65%);
-
   --color-white: hsl(0, 100%, 100%);
-
   --font-rubik: "Rubik", sans-serif;
 }
 
