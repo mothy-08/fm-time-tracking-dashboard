@@ -8,7 +8,7 @@ const data = ref<Category[] | null>(null);
 
 async function loadData() {
   try {
-    const response = await fetch("./data.json");
+    const response = await fetch(`${import.meta.env.BASE_URL}data.json`);
 
     if (!response.ok) {
       throw new Error(`HTTP Error: ${response.status}`);
